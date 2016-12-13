@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <!-- some table style sourced from technicalkeeda.com -->
+    <style> 
+      #title {
+        float: center;
+        text-align: center;
+      }
+
+      body {
+        background-color:  #abedb0;
+      }
+      #getnumberform {
+        float: center;
+        text-align: center;
+      }
+
+      #grabber {
+        text-align: center;
+      }
+
+      #latest {
+        text-align: center;
+      }
+
+      #randomlink {
+       text-align: center;
+      }
+    </style>
+    <link rel='stylesheet' type='text/css' href='static/css/index.css'>
+    <link rel='shortcut icon' href='static/imgs/dog.ico' type='image/x-icon' />
+    <title>Doggit</title>
+</head>
+<body>
+
+  <h3 id='title'> Welcome to Doggit!</h3>
+  <p id='grabber'>Doggit is a online hosting gallery for pictures of Dogs powered by the dog-loving community. You can submit photos via your cell phone. Sign up below!</p>
+<form id='getnumberform' action="" method="post" name="login">
+
+  {{ form.hidden_tag() }}
+  <p>
+    Please Enter Your Phone Number <br>
+    {{ form.number(size=12) }} (Ex. +15555555555) <br>
+    </p>
+  <p><input type="submit" value="Sign Up"></p>
+
+
+</form>
+<h3 id='latest'>Browse our latest posts!</h3>
+<h5 id='randomlink'>Or view a <a href='/random'>random image</a>
+<hr>
+<div class="container">
+{% for pic_list in image_sources | batch(3) %}
+    {% for pic in pic_list %}
+    <div class="column">
+    <div class="imgcontainer"> <a target="_self" href={{ "/view?photoid=" + pic.photoID}} ><img src={{ pic.static_link }} height="300" width="300" /> </a></div>
+    <span>{{ pic.comment }}</span>
+    
+    </div>
+  {% endfor %}
+{% endfor %}
+</div>
+
+
+</body>
+</html>

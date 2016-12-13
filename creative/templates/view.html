@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <style>
+      #imagetitle {
+        text-align: center;
+      }
+
+      body {
+        background-color:  #abedb0;
+      }
+
+      #sendpicform {
+        text-align: center;
+        float: center;
+      
+      }
+
+      #formtable {
+       margin-left: auto;
+       margin-right: auto;
+       float: center;
+
+      }
+
+      #centerer {
+       float: center;
+       margin-right: auto;
+       margin-left: auto;
+      }
+    </style>
+    <link rel='stylesheet' type='text/css' href='static/css/view.css'>
+   <link rel='shortcut icon' href='static/imgs/dog.ico' type='image/x-icon' />
+    <title>Doggo Viewer</title>
+</head>
+<body>
+  <a href='/index'>Go Home </a>
+  <h3 id='imagetitle'>{{ "Viewing Image: " + photo.photoID }}</h3>
+  <h4 style="text-align:center;">Want it for yourself?</h4>
+
+<form id='sendpicform' action="" method="post" name="login">
+
+  {{ form.hidden_tag() }}
+
+  <table id='formtable'>
+    <tr>
+      <td>
+    Please Enter Your Phone Number: 
+    </td>
+      <td>
+    {{ form.number(size=12) }} Ex. +15555555555
+    </td>
+    </tr>
+    <tr>
+      <td>
+	Please Enter the Pic URL:
+	</td>
+      <td>
+    {{ form.media(size=12) }} <a href={{ photo.static_link }}>Copy Me! </a><br>
+    </td>
+    </tr>
+</table>
+  <p><input type="submit" value="Send!"></p>
+
+</form>
+
+
+<h3 style="text-align:center">Click Image For Full Size</h3>
+<div class="centerDiv">
+<div class="container">
+  <div class="column">
+  <div class="imgcontainer"><a href={{ photo.static_link }}><img src={{ photo.static_link}} height="300" width="300"></a></div>
+  <span>{{ photo.comment }}</span>
+</div>
+</div>
+</div>
+
+</body>
+</html>

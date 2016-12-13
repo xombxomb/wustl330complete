@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <style>
+      #imagetitle {
+        text-align: center;
+        text-shadow: 2px 2px yellow;
+      }
+
+      body {
+        background-color:  #abedb0;
+      }
+
+      #sendpicform {
+        text-align: center;
+        float: center;
+      
+      }
+
+      #formtable {
+       margin-left: auto;
+       margin-right: auto;
+       float: center;
+
+      }
+
+      #centerer {
+       float: center;
+       margin-right: auto;
+       margin-left: auto;
+      }
+    </style>
+    <link rel='stylesheet' type='text/css' href='static/css/random.css'>
+    <link rel='shortcut icon' href='static/imgs/dog.ico' type='image/x-icon' />
+    <title>Random Doggo</title>
+</head>
+<body>
+  <a href='/index'>Go Home </a>
+  <h3 id='imagetitle'> Random Doggo </h3>
+  <h5 style="text-align:center"><a href='/random'>MOAR!</a></h5>
+
+
+<h3 style="text-align:center">Click Image For Full Size</h3>
+<div class="centerDiv">
+<div class="container">
+  <div class="column">
+  <div class="imgcontainer"><a href={{ image.static_link }}><img src={{ image.static_link}} height="300" width="300"></a></div>
+  <span>{{ image.comment }}</span>
+</div>
+</div>
+</div>
+<h5 style="text-align:center;"><a href={{ "/view?photoid=" + image.photoID }}>View this image's page</a></h5>
+</div>
+
+</body>
+</html>
